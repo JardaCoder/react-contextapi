@@ -1,13 +1,16 @@
 import Botao from './Botao';
 import ThemeContext from '../contexts/ThemeContext';
+import { useContext } from 'react';
 
-export default () =>(
-    <ThemeContext.Consumer>
-        {value =>(
-            <aside className={"box theme-"+value} >
-                <Botao />
-            </aside>
-        )}
-    </ThemeContext.Consumer>
 
-);
+
+
+export default () =>{
+    const theme = useContext(ThemeContext);
+    return(
+        <aside className={"box theme-"+theme} >
+            <Botao />
+        </aside>
+    );
+}
+

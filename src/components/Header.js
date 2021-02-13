@@ -1,15 +1,16 @@
+import { useContext } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
 import Botao from './Botao';
 
 
 
-export default () =>(
-    <ThemeContext.Consumer>
-        {value =>(
-            <header className={"box theme-" + value}>
-                <Botao />
-            </header>
-        )}
+export default () =>{
 
-    </ThemeContext.Consumer>
-);
+    const theme = useContext(ThemeContext);
+
+  return  (
+        <header className={"box theme-" + theme}>
+            <Botao />
+        </header>
+    );
+}
