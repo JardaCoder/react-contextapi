@@ -1,19 +1,26 @@
-import { useContext } from 'react';
-import ThemeContext from '../contexts/ThemeContext';
 import Botao from './Botao';
+import Contagem from './Contagem';
+import { useStateValue } from '../contexts/StateContext';
 
-export default (props) => {
-
-    const theme = useContext(ThemeContext);
+export default () => {
+    const [state, dispatch] = useStateValue();
 
     const handleButton = () => {
-        props.setUsername('Jardel');
+        dispatch({
+            type: 'setName',
+            name: 'Paulo'
+        });
     }
 
     return (
-        <article className={"box theme-"+theme}>
+        <article className={`box theme-${state.theme}`}>
             <Botao />
-            <button onClick={handleButton}>Trocar para Jardel</button>
+
+            <button onClick={handleButton}>Trocar para Paulo</button>
+
+            <hr/>
+
+            <Contagem />
         </article>
     );
 }

@@ -1,13 +1,9 @@
-import { useContext } from "react";
-import ThemeContext from "../contexts/ThemeContext";
-import UserContext from "../contexts/UserContext";
+import { useStateValue } from '../contexts/StateContext';
 
-export default (props) =>{
-    const theme =  useContext(ThemeContext);
-    const user =  useContext(UserContext);
-    
-    return(
-        <button>{user.name} - {theme}</button>    
+export default () => {
+    const [state, dispatch] = useStateValue();
+
+    return (
+        <button>{state.user.name} - {state.theme}</button>
     );
 }
-
