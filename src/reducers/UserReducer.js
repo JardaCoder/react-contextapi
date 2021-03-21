@@ -11,6 +11,8 @@ export default (state = initialState, action = {}) => {
         case 'setEmail':
             return { ...state, email: action.email };
         break;
+
+        default: return state;
     }
 
     return state;

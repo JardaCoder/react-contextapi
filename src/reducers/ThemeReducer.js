@@ -5,7 +5,10 @@ export default (state = initialState, action = {}) => {
         case 'setTheme':
             return action.theme;
         break;
+
+        default: return state
     }
+
 
     return state;
 }
